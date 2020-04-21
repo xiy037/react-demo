@@ -1,19 +1,20 @@
 import React from 'react';
 import List from './List';
-import { handleAddGoal, handleDeleteGoal } from '../actions/goals'
+import { handleAddGoal, handleDeleteGoal } from '../actions/goals';
+import { connect } from 'react-redux';
 
 class Goals extends React.Component {
   addGoalItem = () => {
     const name = this.input.value;
-    this.props.store.dispatch(handleAddGoal(name, () => {this.input.value = ''}));
+    this.props.dispatch(handleAddGoal(name, () => {this.input.value = ''}));
   }
  
   deleteGoalItem = (goal) => {
-    this.props.store.dispatch(handleDeleteGoal(goal));
+    this.props.dispatch(handleDeleteGoal(goal));
   }
 
   render() {
-    const goals = this.props.store.getState().goals;
+    const goals = this.props.goals;
     return (
       <div>
          <h2>Goals List</h2>
@@ -25,4 +26,6 @@ class Goals extends React.Component {
   }
 }
 
-export default Goals;
+export default connect(state => ({
+  goals: state.goals
+}))(Goals);

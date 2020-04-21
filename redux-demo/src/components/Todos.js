@@ -1,24 +1,25 @@
 import React from 'react';
 import List from './List';
 import { handleAddTodo, handleDeleteTodo, handleToggleTodo } from '../actions/todos';
+import { connect } from 'react-redux';
 
 class Todos extends React.Component {
  
  addTodoItem = () => {
    const name = this.input.value;
-   this.props.store.dispatch(handleAddTodo(name, () => {this.input.value = ''}));
+   this.props.dispatch(handleAddTodo(name, () => {this.input.value = ''}));
  }
 
  deleteTodoItem = (todo) => {
-   this.props.store.dispatch(handleDeleteTodo(todo));
+   this.props.dispatch(handleDeleteTodo(todo));
  }
 
  toggleTodoItem = (id) => {
-   this.props.store.dispatch(handleToggleTodo(id));
+   this.props.dispatch(handleToggleTodo(id));
  }
 
   render() {
-    const todos = this.props.store.getState().todos;
+    const todos = this.props.todos;
     return (
       <div>
         <h2>Todo List</h2>
@@ -30,4 +31,6 @@ class Todos extends React.Component {
   }
 }
 
-export default Todos;
+export default connect(state => ({
+  todos: state.todos
+}))(Todos);
