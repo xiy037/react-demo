@@ -10,6 +10,9 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <div>Loading...</div>
+    }
     return (
       <div className="App">
        <h1>Todo-Goal-demo</h1>
@@ -21,4 +24,6 @@ class App extends React.Component {
   
 }
 
-export default connect(null)(App);
+export default connect((state) => ({
+  loading: state.loading
+}))(App);

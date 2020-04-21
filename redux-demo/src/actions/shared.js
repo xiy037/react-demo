@@ -1,4 +1,4 @@
-import API from 'goals-todos-api'
+import API from 'goals-todos-api';
 
 export const GET_INITIAL_DATA = "GET_INITIAL_DATA";
 
