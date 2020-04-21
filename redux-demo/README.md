@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+- This project is a very simple todo-list, its state is stored using Redux;
+- A fake API was used to mock server to display async request and the use of Redux-thunk;
+- React-Redux was installed for the binding between Redux and React;
+
 ## Available Scripts
 
 In the project directory, you can run:
