@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Todos from './components/Todos';
+import StatCard from './components/StatCard';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      Redux Saga Demo
       </header>
+      <div className="statistics-wrapper">
+        <StatCard title="Todo" total={2}/>
+        <StatCard title="Done" total={1}/>
+      </div>
+      <Todos />
     </div>
   );
 }
